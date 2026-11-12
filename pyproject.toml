@@ -1,0 +1,25 @@
+[project]
+license = {file = "LICENSE"}
+name = "tas-data-readers"
+version = "0.1.0"
+description = "General triple-axis data-reader format detection and metadata adapters."
+requires-python = ">=3.9"
+dependencies = ["tas-copilot-contracts"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+hdf5 = ["h5py>=3"]
+
+[project.entry-points."tas_copilot.tools"]
+tas_data_readers = "tas_data_readers.copilot_plugin"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
